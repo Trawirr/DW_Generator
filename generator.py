@@ -27,6 +27,8 @@ def create_field(arg):
             return ''.join(random.choices(string.ascii_lowercase, k=10))
         elif arg == "date":
             return date.today().replace(year=2021, month=random.randint(1,12), day=random.randint(1, 28))
+        elif arg == "price":
+            return random.randint(200, 1000)
         else:
             with open(f'options/{arg}.txt', 'r') as option_file:
                 options = option_file.readlines()
@@ -63,5 +65,6 @@ if __name__ == "__main__":
     generate_data("employees.csv", "employees.csv", ["first_name", "last_name"], 'a+', 5, ["first_name", "last_name"], 'last_name')
     generate_data("employees2.csv", "employees2.csv", "first_name", 'a+', 2, "first_name", "employees")
     generate_data("players.csv", "players.csv", "id", 'a+', 50, "id", "date")
+    generate_data("players2.csv", "players2.csv", "id", 'a+', 2, "id", "date", "quality")
     # Generowanie T1-T2
     generate_data("employees.csv", "employees.csv", ["first_name", "last_name"], 'a+', 3, ["first_name", "last_name"], 'last_name')
